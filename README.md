@@ -5,8 +5,10 @@
 - Jill Koester 
 - Michelle Gerhart 
 - Benasir Wapniarz 
-- Carlotte Hohne 
+- Carlotta Hohne 
 
 
-## Forschungsfrage
-Welche Digital Skills empfinden Studenten im modernen Arbeitsalltag für besonders wichtig? 
+## 1. Forschungsfrage
+Wie schätzen Studenten ihre **_digital skills_** ein und inwiefern können diese Einschätzungen das Lehrangebot optimieren?
+
+## 2. Faktorenraum
