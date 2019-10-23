@@ -12,3 +12,4 @@
 Wie schätzen Studenten ihre **_digital skills_** ein und inwiefern können diese Einschätzungen das Lehrangebot optimieren?
 
 ## 2. Faktorenraum
+![Bild](https://ibb.co/YyR2n7f)
