@@ -1,4 +1,4 @@
-# ICTamDigitalSkills-6-WS1920
+# DigitalSkillsWS1920
 
 ## Teammitglieder
 - Anna Abel 
