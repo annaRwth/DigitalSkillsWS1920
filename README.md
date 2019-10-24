@@ -3,7 +3,7 @@
 ## Teammitglieder
 - Anna Abel 
 - Jill Koester 
-- Michelle Gerhart 
+- Michelle Gerhardt 
 - Benasir Wapniarz 
 - Carlotta Hohne 
 
