@@ -9,7 +9,7 @@
 
 
 ## 1. Forschungsfrage
-Wie schätzen Masterstudenten ihre **_digital skills_** ein und inwiefern können diese Einschätzungen das Lehrangebot optimieren?
+Inwiefern unterscheiden sich Studierende und Nicht-Studierende in der Ausprägung ihrer digitalen Fähigkeiten?
 
 ## 2. Faktorenraum
 
