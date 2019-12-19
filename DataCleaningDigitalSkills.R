@@ -219,13 +219,14 @@ raw.short$Q107_3 <- ordered(raw.short$Q107_3, levels = scale.zustimmung)
 library(psych)
 
 ## Der scoreItems-Befehl benötigt eine Liste der folgenden Gestalt. Negative Items sind mit Minus gekennzeichnet.
+
 schluesselliste <- list (regfoc = c("regfoc_1", "regfoc_2", "regfoc_3", "regfoc_4", "regfoc_5", "regfoc_6", "regfoc_7", "regfoc_8", "regfoc_9", "regfoc_10"),
                         jc_scen1_question = c("jc_scen1_question_1", "jc_scen1_question_2", "jc_scen1_question_3", "jc_scen1_question_4", "jc_scen1_question_5", "jc_scen1_question_6", "jc_scen1_question_7", "jc_scen1_question_8", "jc_scen1_question_9"),
                         orrpk = c("orrpk_1", "orrpk_2"),
                         orrpz = c("orrpz_1" , "orrpz_2", "orrpz_3"),
-                        orrppe = c ("orrppe_1", "orrppe_2", "orrppe_3""),
+                        orrppe = c ("orrppe_1", "orrppe_2", "orrppe_3"),
                         orrps = c("orrps_1", "orrps_2", "orrps_3", "orrps_4", "orrps_5"),
-                        orrpzg = c("orrpzg_1", "orrpzg_2", "orrpzg_3", "orrpzg_4")
+                        orrpzg = c("orrpzg_1", "orrpzg_2", "orrpzg_3", "orrpzg_4"),
                         orrpi = c("orrpi_1", "orrpi_2", "orrpi_3", "orrpi_4"),
                         Q127 = c("Q127_1", "Q127_2", "Q127_3", "Q127_4", "Q127_5", "Q127_6", "Q127_7"),
                         Q128 = c("Q128_1", "Q128_2", "Q128_3", "Q128_4", "Q128_5", "Q128_6", "Q128_7", "Q128_8", "Q128_9", "Q128_10", "Q128_11", "Q128_12", "Q128_13"),
