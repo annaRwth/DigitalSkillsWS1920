@@ -20,6 +20,9 @@ raw.short <- raw[,c(-1:-17, -19, -28)]
 ## Eine eigene Datei mit den Variablennamen erzeugen:
 generate_codebook(raw.short, Datensatz, "data/codebook.csv")
 
+codebook <- read_codebook("data/codebook_final.csv")
+
+names(raw.short) <- codebook$variable
 
 ### Schritt 3: Variablen den richtigen Typen zuordnen
 ## Gender zu kategorialer Variable machen:
@@ -179,39 +182,39 @@ scale.zustimmung2 <-c("sie",
                       "(fast) immer", 
                       "immer")
 
-raw.short$Q83_1 <- ordered(raw.short$Q83_1, levels = scale.zustimmung)
-raw.short$Q83_2 <- ordered(raw.short$Q83_2, levels = scale.zustimmung)
-raw.short$Q83_3 <- ordered(raw.short$Q83_3, levels = scale.zustimmung)
-raw.short$Q83_4 <- ordered(raw.short$Q83_4, levels = scale.zustimmung)
+raw.short$ds_if_1 <- ordered(raw.short$ds_if_1, levels = scale.zustimmung)
+raw.short$ds_if_2 <- ordered(raw.short$ds_if_2, levels = scale.zustimmung)
+raw.short$ds_if_3 <- ordered(raw.short$ds_if_3, levels = scale.zustimmung)
+raw.short$ds_if_4 <- ordered(raw.short$ds_if_4, levels = scale.zustimmung)
 
-raw.short$Q87_1 <- ordered(raw.short$Q87_1, levels = scale.zustimmung)
-raw.short$Q87_2 <- ordered(raw.short$Q87_2, levels = scale.zustimmung)
-raw.short$Q87_3 <- ordered(raw.short$Q87_3, levels = scale.zustimmung)
-raw.short$Q87_4 <- ordered(raw.short$Q87_4, levels = scale.zustimmung)
+raw.short$ds_kommf_1 <- ordered(raw.short$ds_kommf_1, levels = scale.zustimmung)
+raw.short$ds_kommf_2 <- ordered(raw.short$ds_kommf_2, levels = scale.zustimmung)
+raw.short$ds_kommf_3 <- ordered(raw.short$ds_kommf_3, levels = scale.zustimmung)
+raw.short$ds_kommf_4 <- ordered(raw.short$ds_kommf_4, levels = scale.zustimmung)
 
-raw.short$Q91_1 <- ordered(raw.short$Q91_1, levels = scale.zustimmung)
-raw.short$Q91_2 <- ordered(raw.short$Q91_2, levels = scale.zustimmung)
-raw.short$Q91_3 <- ordered(raw.short$Q91_3, levels = scale.zustimmung)
-raw.short$Q91_4 <- ordered(raw.short$Q91_4, levels = scale.zustimmung)
+raw.short$ds_kollf_1 <- ordered(raw.short$ds_kollf_1, levels = scale.zustimmung)
+raw.short$ds_kollf_2 <- ordered(raw.short$ds_kollf_2, levels = scale.zustimmung)
+raw.short$ds_kollf_3 <- ordered(raw.short$ds_kollf_3, levels = scale.zustimmung)
+raw.short$ds_kollf_4 <- ordered(raw.short$ds_kollf_4, levels = scale.zustimmung)
 
-raw.short$Q95_1 <- ordered(raw.short$Q95_1, levels = scale.zustimmung)
-raw.short$Q95_2 <- ordered(raw.short$Q95_2, levels = scale.zustimmung)
-raw.short$Q95_3 <- ordered(raw.short$Q95_3, levels = scale.zustimmung)
-raw.short$Q95_4 <- ordered(raw.short$Q95_4, levels = scale.zustimmung)
+raw.short$ds_kd_1 <- ordered(raw.short$ds_kd_1, levels = scale.zustimmung)
+raw.short$ds_kd_2 <- ordered(raw.short$ds_kd_2, levels = scale.zustimmung)
+raw.short$ds_kd_3 <- ordered(raw.short$ds_kd_3, levels = scale.zustimmung)
+raw.short$ds_kd_4 <- ordered(raw.short$ds_kd_4, levels = scale.zustimmung)
 
-raw.short$Q99_1 <- ordered(raw.short$Q99_1, levels = scale.zustimmung)
-raw.short$Q99_2 <- ordered(raw.short$Q99_2, levels = scale.zustimmung)
-raw.short$Q99_3 <- ordered(raw.short$Q99_3, levels = scale.zustimmung)
-raw.short$Q99_4 <- ordered(raw.short$Q99_4, levels = scale.zustimmung)
+raw.short$ds_ks_1 <- ordered(raw.short$ds_ks_1, levels = scale.zustimmung)
+raw.short$ds_ks_2 <- ordered(raw.short$ds_ks_2, levels = scale.zustimmung)
+raw.short$ds_ks_3 <- ordered(raw.short$ds_ks_3, levels = scale.zustimmung)
+raw.short$ds_ks_4 <- ordered(raw.short$ds_ks_4, levels = scale.zustimmung)
 
-raw.short$Q103_1 <- ordered(raw.short$Q103_1, levels = scale.zustimmung)
-raw.short$Q103_2 <- ordered(raw.short$Q103_2, levels = scale.zustimmung)
-raw.short$Q103_3 <- ordered(raw.short$Q103_3, levels = scale.zustimmung)
-raw.short$Q103_4 <- ordered(raw.short$Q103_4, levels = scale.zustimmung)
+raw.short$ds_pf_1 <- ordered(raw.short$ds_pf_1, levels = scale.zustimmung)
+raw.short$ds_pf_2 <- ordered(raw.short$ds_pf_2, levels = scale.zustimmung)
+raw.short$ds_pf_3 <- ordered(raw.short$ds_pf_3, levels = scale.zustimmung)
+raw.short$ds_pf_4 <- ordered(raw.short$ds_pf_4, levels = scale.zustimmung)
 
-raw.short$Q107_1 <- ordered(raw.short$Q107_1, levels = scale.zustimmung)
-raw.short$Q107_2 <- ordered(raw.short$Q107_2, levels = scale.zustimmung)
-raw.short$Q107_3 <- ordered(raw.short$Q107_3, levels = scale.zustimmung)
+raw.short$ds_ict_1 <- ordered(raw.short$ds_ict_1, levels = scale.zustimmung)
+raw.short$ds_ict_2 <- ordered(raw.short$ds_ict_2, levels = scale.zustimmung)
+raw.short$ds_ict_3 <- ordered(raw.short$ds_ict_3, levels = scale.zustimmung)
 
 ### Schritt 4: Skalen berechnen
 
@@ -234,13 +237,13 @@ schluesselliste <- list (regfoc = c("regfoc_1", "-regfoc_2", "-regfoc_3", "regfo
                         Q132 = c("-Q132_1", "Q132_2"),
                         Q133 = c("Q133_1", "-Q133_2", "-Q133_3", "Q133_4", "Q133_5", "-Q133_6", "-Q133_7", "Q133_8", "Q133_9", "Q133_10", "Q133_11", "Q133_12", "-Q133_13"),
                         Q135 = c("Q135_1", "-Q135_2", "Q135_3", "-Q135_4", "Q135_5"),
-                        Q107 = c("Q107_1", "-Q107_2", "Q107_3"),
-                        Q103 = c("-Q103_1", "-Q103_2", "Q103_3", "Q103_4"),
-                        Q99 = c("Q99_1", "Q99_2", "Q99_3", "Q99_4"),
-                        Q95 = c("Q95_1", "Q95_2", "Q95_3", "Q95_4"),
-                        Q91 = c("Q91_1", "Q91_2", "Q91_3", "Q91_4"),
-                        Q87 = c("Q87_1", "Q87_2", "Q87_3", "Q87_4"),
-                        Q83 = c("-Q83_1", "Q83_2", "Q83_3", "Q83_4"))
+                        ds_ict = c("ds_ict_1", "-ds_ict_2", "ds_ict_3"),
+                        ds_pf = c("-ds_pf_1", "-ds_pf_2", "ds_pf_3", "ds_pf_4"),
+                        ds_ks = c("ds_ks_1", "ds_ks_2", "ds_ks_3", "ds_ks_4"),
+                        ds_kd = c("ds_kd_1", "ds_kd_2", "ds_kd_3", "ds_kd_4"),
+                        ds_kollf = c("ds_kollf_1", "ds_kollf_2", "ds_kollf_3", "ds_kollf_4"),
+                        ds_kommf = c("ds_kommf_1", "ds_kommf_2", "ds_kommf_3", "ds_kommf_4"),
+                        ds_if = c("-ds_if_1", "ds_if_2", "ds_if_3", "ds_if_4"))
                         
 ## Hier werden die Skalen berechnet:
 
