@@ -75,7 +75,7 @@ H0 = Männer und Frauen unterscheiden sich nicht bei der Teilnahme an Diskussion
 H1 = Männer und Frauen unterscheiden sich bei der Teilnahme an Diskussionen über Internet Anwendungen.
 
 
-###Zusammenhangshypothesen
+### Zusammenhangshypothesen
 
 #### Hypothese 6: 
 
