@@ -105,10 +105,13 @@ library(psych)
 ## Der scoreItems-Befehl benötigt eine Liste der folgenden Gestalt. Negative Items sind mit Minus gekennzeichnet.
 
 
-schluesselliste <- list (ICT = c("ict1", "ict2", "ict3"),
-                         Informationsfähigkeit = c("if1", "if2", "if3", "if4"),
-                         Kommunikationsfähigkeit = c("komf1", "komf2", "komf3", "komf4"))
-
+schluesselliste <- list(IF = c("if1", "if2", "if3", "if4"),
+                   KOMF = c("komf1", "komf2", "komf3", "komf4"),
+                   KOLLF = c("kollf1", "kollf2", "kollf3", "kollf4"),
+                   FKD = c("fkd1", "fkd2", "fkd3", "fkd4"),
+                   FKS = c("fks1", "fks2", "fks3", "fks4"),
+                   PF = c("pf1", "pf2", "pf3", "pf4"),
+                   ICT = c("ict1", "-ict2", "ict3"))
                       
 ## Hier werden die Skalen berechnet: 
 scores <- scoreItems(schluesselliste, raw.short2, missing = TRUE, min = 1, max = 6)
@@ -121,9 +124,14 @@ data <- bind_cols(raw.short2, as_tibble(scores$scores))
 ## Da wir die Konstrukte ja schon berechnet haben, haben wir für die einzelnen Items keine Verwendung mehr. 
 ## Hierdurch entfernen wir alle Einzelitems. Wörtlich: "Entferne alle Spalten, die mit kleingeschriebenem "ati" beginnen usw. 
 data <- data %>% 
-  select(-starts_with("ict", ignore.case = F)) %>% 
-  select(-starts_with("informationsfähigkeit", ignore.case = F)) %>%
-  select(-starts_with("kommunikationsfähigkeit", ignore.case = F))
+  
+  select(-starts_with("if", ignore.case = F)) %>% 
+  select(-starts_with("komf", ignore.case = F)) %>%
+  select(-starts_with("kollf", ignore.case = F)) %>%
+  select(-starts_with("fkd", ignore.case = F)) %>%
+  select(-starts_with("fks", ignore.case = F)) %>% 
+  select(-starts_with("pf", ignore.case = F)) %>% 
+  select(-starts_with("ict", ignore.case = F))
 
 ## data sieht jetzt genau so aus wie in der Musterlösung und kann abgespeichert werden:
 saveRDS(data, "data/data.rds")
