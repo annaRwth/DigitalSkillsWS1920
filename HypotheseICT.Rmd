@@ -1,0 +1,62 @@
+---
+title: "HypotheseICT"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(devtools)
+library(plotrix)
+library(ggplot2)
+library(jmv)
+datensatz <- readRDS("data/data.rds")
+rwthfarben <- hcictools::rwth.colorpalette()
+```
+
+# Hypothese 1: ICT
+
+## Es besteht ein Unterschied zwischen Studierenden und Nicht-Studierenden im Hinblick auf die Einstellung gegenüber ICTs.
+
+```{r ANOVA}
+
+datensatz %>%
+  ANOVA(dep = "ICT", factors = c("taetigkeit"), effectSize = "partEta", postHoc = ICT ~ taetigkeit, emMeans = ~ taetigkeit, emmPlots = TRUE)
+
+
+```
+
+
+
+```{r}
+mapping <- c("Angestellter" = "Nicht-Studierend",
+             "Auszubildender" = "Nicht-Studierend",
+             "Selbstständiger" = "Nicht-Studierend",
+             "Rentner" ="Nicht-Studierend",
+             "Arbeitssuchender" = "Nicht-Studierend",
+             "Schüler" = "Nicht-Studierend",
+             "Student"="Studierend")
+datensatz$Studienstatus <- mapping[as.character(datensatz$taetigkeit)]
+datensatz %>%
+ filter(!is.na(Studienstatus)) %>% 
+ group_by(Studienstatus) %>%
+ summarise(ICT_mean = mean(ICT, na.rm = TRUE)-1, 
+      count = n(),
+      ICT_se = std.error(ICT)) %>%
+mutate(ICT_ci = ICT_se * 1.96) %>%
+ ggplot() +
+ aes(x = Studienstatus, fill = Studienstatus,
+   y = ICT_mean,
+   ymin = ICT_mean - ICT_ci,
+   ymax = ICT_mean + ICT_ci,
+   group = 1) +
+ geom_col(fill = c(rwthfarben$lightblue, rwthfarben$bordeaux), width = 0.4) +
+ geom_line() +
+ geom_errorbar(width = 0.2) + 
+ scale_y_continuous(limits = c(0,5), breaks = 0:5) + 
+ labs(title = "Studierende haben eine gering höhere Einstellung gegenüber ICTs", 
+    subtitle = "Mittelwertplot mit 95% Konfidenzintervall",
+    x = "Studienstatus ",
+    y = "ICT [0 = nie bis 5 = (fast) immer]", fill = "Studienstatus")
+```

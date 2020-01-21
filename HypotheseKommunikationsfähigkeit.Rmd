@@ -1,0 +1,41 @@
+---
+title: "HypotheseKommunikationsfähigkeit"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(plotrix)
+library(dataforsocialscience)
+library(jmv)
+library(cowplot)
+datensatz <- readRDS("data/data.rds")
+```
+
+# Hypothese 3: Kommunikationsfähigkeit 
+## Je älter eine Person ist, desto mehr sinkt seine Kommunikationsfähigkeit.
+
+Korrelation
+
+
+#Korrelationen berechnen
+
+```{r corrmatrix}
+jmv::corrMatrix(datensatz, c("alter", "KOMF"), kendall = TRUE, flag =  TRUE, plots = TRUE)
+```
+
+#Visualisierung
+
+```{r}
+
+datensatz %>% 
+
+  ggplot() + aes(x = alter, y = KOMF) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", color = "black") + cowplot::theme_half_open() + labs(title = "Mit steigendem Alter sinkt die Kommunikationsfähigkeit ", x = "Alter", y = "Kommunikationsfähigkeit",
+  "Alter und Kommunikationsfähigkeit korrelieren negativ/positiv")
+```
+
+```

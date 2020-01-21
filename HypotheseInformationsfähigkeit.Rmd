@@ -1,0 +1,61 @@
+---
+title: "HypotheseInformationsfähigkeit"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(devtools)
+library(plotrix)
+library(ggplot2)
+library(jmv)
+datensatz <- readRDS("data/data.rds")
+rwthfarben <- hcictools::rwth.colorpalette()
+```
+
+# Hypothese 2: Informationsfähigkeit. Es besteht ein Unterschied zwischen Studierenden und Nicht-Studierenden im Hinblick auf die Informationsfähigkeit.
+
+```{r ANOVA}
+
+datensatz %>%
+  ANOVA(dep = "IF", factors = c("taetigkeit"), effectSize = "partEta", postHoc = Informationsfähigkeit ~ taetigkeit, emMeans = ~ taetigkeit, emmPlots = TRUE)
+
+
+```
+
+
+
+
+```{r}
+mapping <- c("Angestellter" = "Nicht-Studierend",
+             "Auszubildender" = "Nicht-Studierend",
+             "Selbstständiger" = "Nicht-Studierend",
+             "Rentner" ="Nicht-Studierend",
+             "Arbeitssuchender" = "Nicht-Studierend",
+             "Schüler" = "Nicht-Studierend",
+             "Student"="Studierend")
+datensatz$Studienstatus <- mapping[as.character(datensatz$taetigkeit)]
+datensatz %>%
+ filter(!is.na(Studienstatus)) %>% 
+ group_by(Studienstatus) %>%
+ summarise(IF_mean = mean(IF, na.rm = TRUE)-1, 
+      count = n(),
+      IF_se = std.error(IF)) %>%
+mutate(IF_ci = IF_se * 1.96) %>%
+ ggplot() +
+ aes(x = Studienstatus, fill = Studienstatus,
+   y = IF_mean,
+   ymin = IF_mean - IF_ci,
+   ymax = IF_mean + IF_ci,
+   group = 1) +
+ geom_col(fill = c(rwthfarben$lightblue, rwthfarben$bordeaux), width = 0.4) +
+ geom_line() +
+ geom_errorbar(width = 0.2) + 
+ scale_y_continuous(limits = c(0,5), breaks = 0:5) + 
+ labs(title = "Studierende haben eine gering höhere Informationsfähigkeit", 
+    subtitle = "Mittelwertplot mit 95% Konfidenzintervall",
+    x = "Studienstatus ",
+    y = "Informationsfähigkeit [0 = nie bis 5 = (fast) immer]", fill = "Studienstatus")
+```
