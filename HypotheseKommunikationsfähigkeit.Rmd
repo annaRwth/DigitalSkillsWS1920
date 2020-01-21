@@ -1,5 +1,5 @@
 ---
-title: "HypotheseKommunikationsfähigkeit"
+title: "Hypothese Kommunikationsfähigkeit"
 output: html_document
 ---
 
@@ -14,8 +14,7 @@ library(cowplot)
 datensatz <- readRDS("data/data.rds")
 ```
 
-# Hypothese 3: Kommunikationsfähigkeit 
-## Je älter eine Person ist, desto mehr sinkt seine Kommunikationsfähigkeit.
+### Je älter eine Person ist, desto mehr sinkt seine Kommunikationsfähigkeit.
 
 Korrelation
 

@@ -1,5 +1,5 @@
 ---
-title: "HypotheseICT"
+title: "Hypothese ICT"
 output: html_document
 ---
 
@@ -15,9 +15,7 @@ datensatz <- readRDS("data/data.rds")
 rwthfarben <- hcictools::rwth.colorpalette()
 ```
 
-# Hypothese 1: ICT
-
-## Es besteht ein Unterschied zwischen Studierenden und Nicht-Studierenden im Hinblick auf die Einstellung gegenüber ICTs.
+### Es besteht ein Unterschied zwischen Studierenden und Nicht-Studierenden im Hinblick auf die Einstellung gegenüber ICTs.
 
 ```{r ANOVA}
 
